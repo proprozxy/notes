@@ -273,7 +273,7 @@ TF-IDF, which stands for Term Frequency-Inverse Document Frequency, is widely us
 
 - The IDF is often calculated using the formula: 
   $$
-  IDF(t)=log(\frac{N}{df(t)})
+  IDF(t)=log(\frac{N + 1}{1 + df(t)}) + 1
   $$
   where $N$ is the total number of documents, and $df(t)$ is the number of documents that contain the term $t$.
 
@@ -343,36 +343,58 @@ Word Embeddings is a technique for mapping words into a continuous vector space,
 
 ### 6 Training
 
-#### Overfitting
+#### 6.1 Overfitting
+
+##### 6.1.1 L1 Regularization - Lasso
+
+##### 6.1.2 L2 Regularization - Ridge
+
+##### 6.1.3 Early Stopping
 
 
 
 ### 7 Evaluation
 
-#### Accuracy
+#### 7.1 Accuracy
+
+Represent the ratio of correctly classified samples to the total number of samples.
+$$
+Accuracy =
+$$
 
 
+#### 7.2 Precision
 
-#### Precision
-
-
-
-#### Recall
-
-
-
-#### F1 Score
+Show the model's ability to correctly classify positive cases among all cases it classified as positive.
+$$
+Precision =
+$$
 
 
+#### 7.3 Recall
 
-#### ROC Curve
+Show the model's ability to correctly classify positive cases among all actual positive cases. 
+$$
+Recall =
+$$
 
 
+#### 7.4 F1 Score
 
-#### AUC Curve
+The harmonic mean of precision and recall.
+$$
+F1 =
+$$
 
 
+#### 7.5 ROC Curve / AUC
 
+It plots the False Positive Rate (FPR) on the x-axis and the True Positive Rate (TPR) on the y-axis for different threshold values. The area under the ROC curve (AUC) is also a metric used to measure a classification model's performance. A higher AUC value (closer to 1) indicates better model performance.
+$$
+FPR=
+\\
+TPR=
+$$
 
 
 
