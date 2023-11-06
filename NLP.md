@@ -382,6 +382,7 @@ Select a subset of neurons and set their outputs to zero during each training it
 #### 7.1 Accuracy
 
 Represent the ratio of correctly classified samples to the total number of samples.
+
 $$
 Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
 $$
@@ -390,6 +391,7 @@ $$
 #### 7.2 Precision
 
 Show the model's ability to correctly classify positive cases among all cases it classified as positive.
+
 $$
 Precision = \frac{TP}{TP+FP}
 $$
@@ -398,6 +400,7 @@ $$
 #### 7.3 Recall
 
 Show the model's ability to correctly classify positive cases among all actual positive cases. 
+
 $$
 Recall = \frac{TP}{TP+FN}
 $$
@@ -406,6 +409,7 @@ $$
 #### 7.4 F1 Score
 
 The harmonic mean of precision and recall.
+
 $$
 F1 = \frac{2 \cdot Precision \cdot Recall}{Precision+Recall}
 $$
@@ -414,6 +418,7 @@ $$
 #### 7.5 ROC Curve / AUC
 
 It plots the False Positive Rate (FPR) on the x-axis and the True Positive Rate (TPR) on the y-axis for different threshold values. The area under the ROC curve (AUC) is also a metric used to measure a classification model's performance. A higher AUC value (closer to 1) indicates better model performance.
+
 $$
 FPR= \frac{FP}{FP+TN}
 $$
