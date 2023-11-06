@@ -333,11 +333,17 @@ N-gram is used to split text into consecutive n words or character sequences. Th
 
 Word Embeddings is a technique for mapping words into a continuous vector space, where each word is represented as a vector. These vectors are automatically learned from large-scale text data, often using deep learning methods such as Word2Vec, GloVe, or FastText.
 
+CBOW
 
+Skip-gram
 
 ### 5 ML / DL
 
 #### BERT
+
+Masked Language Modeling - MLM
+
+Next Sentence Prediction - NSP
 
 
 
@@ -347,19 +353,37 @@ Word Embeddings is a technique for mapping words into a continuous vector space,
 
 ##### 6.1.1 L1 Regularization - Lasso
 
+Add a penalty term to the loss function that is the sum of the absolute values of the model's weights. It encourages the model to have sparse weight values, effectively performing feature selection by pushing some weights to exactly zero. The term is often calculated using the formula:
+$$
+l1 = \lambda\sum_{i=1}^n|w_i|
+$$
+where $\lambda$ is the regularization strength hyperparameter, and $w_i$ represents the model's weight for the $i^{th}$ feature.
+
 ##### 6.1.2 L2 Regularization - Ridge
 
-##### 6.1.3 Early Stopping
+Add a penalty term to the loss function that is the sum of the squares of the model's weights. It encourages the model to have smaller and more evenly distributed weights, preventing any single feature from dominating. The term is often calculated using the formula:
+$$
+l2 = \lambda\sum_{i=1}^n w_i^2
+$$
+
+##### 6.1.3 Dropout
+
+Select a subset of neurons and set their outputs to zero during each training iteration according to a parameter $p$, which controls the probability of deactivating each neuron. This method effectively enforce the network to train with different subnetworks for each training sample, reducing their dependence on the model. This helps increase the generalization ability of the model, making the network more robust and generalizable.
 
 
 
 ### 7 Evaluation
 
+- *TP* = True Positives (correctly classified positive instances)
+- *TN* = True Negatives (correctly classified negative instances)
+- *FP* = False Positives (incorrectly classified as positive)
+- *FN* = False Negatives (incorrectly classified as negative)
+
 #### 7.1 Accuracy
 
 Represent the ratio of correctly classified samples to the total number of samples.
 $$
-Accuracy =
+Accuracy = \frac{TP+TN}{TP+TN+FP+FN}
 $$
 
 
@@ -367,7 +391,7 @@ $$
 
 Show the model's ability to correctly classify positive cases among all cases it classified as positive.
 $$
-Precision =
+Precision = \frac{TP}{TP+FP}
 $$
 
 
@@ -375,7 +399,7 @@ $$
 
 Show the model's ability to correctly classify positive cases among all actual positive cases. 
 $$
-Recall =
+Recall = \frac{TP}{TP+FN}
 $$
 
 
@@ -383,7 +407,7 @@ $$
 
 The harmonic mean of precision and recall.
 $$
-F1 =
+F1 = \frac{2 \cdot Precision \cdot Recall}{Precision+Recall}
 $$
 
 
@@ -391,11 +415,10 @@ $$
 
 It plots the False Positive Rate (FPR) on the x-axis and the True Positive Rate (TPR) on the y-axis for different threshold values. The area under the ROC curve (AUC) is also a metric used to measure a classification model's performance. A higher AUC value (closer to 1) indicates better model performance.
 $$
-FPR=
-\\
-TPR=
+FPR= \frac{FP}{FP+TN}
 $$
 
-
-
+$$
+TPR=Recall=\frac{TP}{TP+FN}
+$$
 
