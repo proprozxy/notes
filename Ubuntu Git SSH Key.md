@@ -15,6 +15,10 @@ git config --list
 ```
 
 ```cmd
+ls -al ~/.ssh
+```
+
+```cmd
 ssh-keygen -t -rsa -C "proprozxy@outlook.com"
 ```
 
@@ -25,3 +29,8 @@ cat ~/.ssh/id_rsa.pub
 Login in GitHub
 
 Settings - SSH and GPG keys - New SSH Key
+
+```cmd
+ssh -T git@github.com
+```
+
