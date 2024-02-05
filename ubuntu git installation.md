@@ -29,7 +29,7 @@ ls -al ~/.ssh
 Generate SSH key
 
 ```cmd
-ssh-keygen -t -rsa -C "proprozxy@outlook.com"
+ssh-keygen -t rsa -C "proprozxy@outlook.com"
 ```
 
 Show public key
