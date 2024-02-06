@@ -36,7 +36,7 @@ lspci | grep -i nvidia
 
 ![Screenshot from 2024-02-05 00-50-58](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-50-58.png)
 
-![Screenshot from 2024-02-05 00-53-09](D:\github\notes\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-53-09.png)
+![Screenshot from 2024-02-05 00-53-09](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-53-09.png)
 
 ##### 命令行
 
@@ -235,7 +235,5 @@ nvidia-smi
 
 重装 Ubuntu 时禁用 Nouveau 以解决冲突问题
 
-参考 Install Ubuntu 20.04 in a CUDA compatible way on RTX 30 series laptops.md
-
-
+参考 Install Ubuntu 20.04 in a CUDA compatible way.md
 
