@@ -1,4 +1,4 @@
-## NVIDIA Driver Installation
+## Install NVIDIA Driver on Ubuntu 20.04
 
 ubuntu 20.04 lts
 
@@ -10,7 +10,7 @@ ubuntu 20.04 lts
 nvidia-smi
 ```
 
-![Screenshot from 2024-02-05 00-47-19](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 00-47-19.png)
+![Screenshot from 2024-02-05 00-47-19](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-47-19.png)
 
 从硬件级别检测显卡
 
@@ -18,7 +18,7 @@ nvidia-smi
 lspci | grep -i nvidia
 ```
 
-![Screenshot from 2024-02-05 00-50-00](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 00-50-00.png)
+![Screenshot from 2024-02-05 00-50-00](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-50-00.png)
 
 根据 PCI 号查询对应的显卡型号
 
@@ -34,9 +34,9 @@ lspci | grep -i nvidia
 
 ##### 图形化界面
 
-![Screenshot from 2024-02-05 00-50-58](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 00-50-58.png)
+![Screenshot from 2024-02-05 00-50-58](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-50-58.png)
 
-![Screenshot from 2024-02-05 00-53-09](D:\github\notes\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 00-53-09.png)
+![Screenshot from 2024-02-05 00-53-09](D:\github\notes\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-53-09.png)
 
 ##### 命令行
 
@@ -46,7 +46,7 @@ lspci | grep -i nvidia
 ubuntu-drivers devices
 ```
 
-![Screenshot from 2024-02-05 00-50-37](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 00-50-37.png)
+![Screenshot from 2024-02-05 00-50-37](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 00-50-37.png)
 
 ```bash
 sudo apt install nvidia-driver-535
@@ -76,7 +76,7 @@ nvidia-smi
 NVIDIA-SMI has failed because it couldn't communicate...
 ```
 
-![Screenshot from 2024-02-05 01-47-51](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 01-47-51.png)
+![Screenshot from 2024-02-05 01-47-51](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 01-47-51.png)
 
 检查 NVIDIA 内核是否成功加载
 
@@ -112,7 +112,7 @@ Nouveau 是默认的驱动程序，需要将 Nouveau 加入黑名单，禁止它
 lsmod | grep nouveau
 ```
 
-![Screenshot from 2024-02-05 01-23-21](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 01-23-21.png)
+![Screenshot from 2024-02-05 01-23-21](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 01-23-21.png)
 
 在终端打开
 
@@ -159,7 +159,7 @@ dkms status nvidia
 dpkg --get-selections | grep linux-image 
 ```
 
-![Screenshot from 2024-02-05 01-53-41](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 01-53-41.png)
+![Screenshot from 2024-02-05 01-53-41](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 01-53-41.png)
 
 确保当前运行的内核版本号与 DKMS 模块匹配
 
@@ -227,7 +227,7 @@ sudo apt-get autoremove
 nvidia-smi
 ```
 
-![Screenshot from 2024-02-05 01-51-10](.\img\ubuntu nvidia driver installation\Screenshot from 2024-02-05 01-51-10.png)
+![Screenshot from 2024-02-05 01-51-10](.\img\Install NVIDIA Driver on Ubuntu 20.04\Screenshot from 2024-02-05 01-51-10.png)
 
 
 
@@ -235,7 +235,7 @@ nvidia-smi
 
 重装 Ubuntu 时禁用 Nouveau 以解决冲突问题
 
-参考 ubuntu cuda installation pipeline.md
+参考 Install Ubuntu 20.04 in a CUDA compatible way on RTX 30 series laptops.md
 
 
 

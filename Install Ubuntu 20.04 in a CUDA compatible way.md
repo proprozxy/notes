@@ -1,4 +1,4 @@
-## Ubuntu Cuda Installation Pipeline
+## Install Ubuntu 20.04 in a CUDA compatible way
 
 *for ubuntu 20.04 lts*
 
@@ -61,17 +61,20 @@ sudo apt-get --purge remove "*nvidia*"
 sudo apt-get autoremove 
 ```
 
-Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads) to choose version then follow instructions to install
+Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads) to choose version then follow **the instructions** to install
 
-Restart and check whether it works properly
+**The instructions** include 2 parts: base installer and driver installer. e.g.
+
+![cuda toolkit](.\img\Install Ubuntu 20.04 in a CUDA compatible way on RTX 30 series laptops\cuda toolkit.png)
+
+Restart
 
 ```bash
 sudo reboot
 ```
 
+Check whether it works properly
+
 ```bash
 nvidia-smi
 ```
-
-
-
