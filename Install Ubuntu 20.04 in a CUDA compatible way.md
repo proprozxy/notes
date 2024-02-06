@@ -1,6 +1,6 @@
 ## Install Ubuntu 20.04 in a CUDA compatible way
 
-*for ubuntu 20.04 lts*
+*for Ubuntu 20.04 LTS*
 
 *from USB drive*
 
@@ -14,7 +14,7 @@ F7 enter Advanced Mode
 
 ​	Security - Secure Boot - Disabled - F10 Save
 
-​	Set SanDisk at Boot Option #1 - F10 Save
+​	Set SanDisk as Boot Option #1 - F10 Save
 
 F8 enter Boot Menu
 
@@ -22,7 +22,7 @@ F8 enter Boot Menu
 
 **STEP 2: Install Ubuntu**
 
-Goes to GRUD menu
+Enter GRUD menu
 
 ​	Press 'E' to edit
 
@@ -34,13 +34,13 @@ Goes to GRUD menu
 
 ​	F10 to boot
 
-Install ubuntu
+Install Ubuntu
 
 Remove the installation USB and restart
 
-**STEP 3: Install Cuda**
+**STEP 3: Install CUDA**
 
-Install cuda dependencies
+Install CUDA dependencies
 
 ```bash
 sudo apt-get update -y
@@ -49,7 +49,7 @@ sudo apt-get install build-essential ca-certificates g++ curl -y
 sudo apt-get install -y software-properties-common
 ```
 
-Remove older/other cuda
+Remove older/other CUDA
 
 ```bash
 sudo apt-get purge nvidia*
@@ -63,9 +63,9 @@ sudo apt-get autoremove
 
 Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads) to choose version then follow **the instructions** to install
 
-**The instructions** include 2 parts: base installer and driver installer. e.g.
+**The instructions** include base installer and driver installer. e.g.
 
-![cuda toolkit](.\img\Install Ubuntu 20.04 in a CUDA compatible way\CUDA Toolkit.png)
+![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/CUDA%20Toolkit.png)
 
 Restart
 
