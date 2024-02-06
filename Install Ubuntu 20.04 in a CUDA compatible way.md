@@ -65,7 +65,7 @@ Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda
 
 **The instructions** include 2 parts: base installer and driver installer. e.g.
 
-![cuda toolkit](.\img\Install Ubuntu 20.04 in a CUDA compatible way on RTX 30 series laptops\cuda toolkit.png)
+![cuda toolkit](.\img\Install Ubuntu 20.04 in a CUDA compatible way\CUDA Toolkit.png)
 
 Restart
 
