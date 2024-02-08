@@ -63,9 +63,13 @@ sudo apt-get autoremove
 
 Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads) to choose version then follow **the instructions** to install
 
-**The instructions** include base installer and driver installer. e.g.
+The CUDA Toolkit includes a specific version of the NVIDIA Driver to ensure compatibility with CUDA versions. Therefore, when 
 
-![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/CUDA%20Toolkit.png)
+you install the CUDA Toolkit, it automatically installs the NVIDIA Driver for the current CUDA version.
+
+Use CUDA Toolkit 11.8 as an example
+
+![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/cuda.png)
 
 Restart
 
@@ -73,8 +77,76 @@ Restart
 sudo reboot
 ```
 
-Check whether it works properly
+Check NVIDIA Driver and CUDA version
 
 ```bash
 nvidia-smi
+nvcc -V
 ```
+
+The NVIDIA Driver runs normally but the CUDA Toolkit version cannot be found
+
+The system recommends installing CUDA Toolkit. 
+
+![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-16-31.png)
+
+**<u>ATTENTION: HERE IS A TRAP!!!</u>**
+
+**<u>DO NOT</u>** do that or another CUDA Toolkit will be installed, most likely version 10.1.xxx
+
+In fact, CUDA Toolkit 11.8 has been installed, but it is not configured in the environment variables.
+
+Enter the CUDA installation directory, most likely
+
+```bash
+cd /usr/local 
+```
+
+or you can use this command to directly see whether the folder exists
+
+```bash
+nautilus /
+```
+
+The cuda in the directory is usually a **symbolic link** that points to a specific version of CUDA directory. The reason for this is to make it easier for users to call in an environment where multiple CUDA coexist.
+
+![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-14-27.png)
+
+Use vim or nano to edit environment configuration files
+
+```bash
+nano ~/.bashrc
+```
+
+Add at the end of the file
+
+```bash
+# cuda
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64
+export PATH=$PATH:/usr/local/cuda/bin
+```
+
+CTRL+O save
+
+ENTER ensure file name
+
+CTRL+X exit
+
+![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-25-33.png)
+
+Make it effective
+
+```bash
+source ~/.bashrc
+```
+
+Check whether nvcc runs normally
+
+```bash
+nvcc -V
+```
+
+![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-27-50.png)
+
+
+
