@@ -52,16 +52,17 @@ sudo apt-get install -y software-properties-common
 Remove older/other CUDA
 
 ```bash
-sudo apt-get purge nvidia*
+# To remove CUDA Toolkit
+sudo apt-get --purge remove "*cuda*" "*cublas*" "*cufft*" "*cufile*" "*curand*" "*cusolver*" "*cusparse*" "*gds-tools*" "*npp*" "*nvjpeg*" "nsight*" "*nvvm*"
+
+# To remove NVIDIA Drivers
+sudo apt-get --purge remove "*nvidia*" "libxnvctrl*"
+
+# To clean up the uninstall
 sudo apt-get autoremove
-sudo apt-get autoclean
-sudo rm -rf /usr/local/cuda*
-sudo apt-get --purge remove "*cublas*" "*cufft*" "*curand*" "*cusolver*" "*cusparse*" "*npp*" "*nvjpeg*" "cuda*" "nsight*"
-sudo apt-get --purge remove "*nvidia*"
-sudo apt-get autoremove 
 ```
 
-Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads) to choose version then follow **the instructions** to install
+Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads) to choose version then follow the instructions to install
 
 The CUDA Toolkit includes a specific version of the NVIDIA Driver to ensure compatibility with CUDA versions. Therefore, when 
 
@@ -84,6 +85,8 @@ nvidia-smi
 nvcc -V
 ```
 
+What may happen is
+
 The NVIDIA Driver runs normally but the CUDA Toolkit version cannot be found
 
 The system recommends installing CUDA Toolkit. 
@@ -92,7 +95,7 @@ The system recommends installing CUDA Toolkit.
 
 **<u>ATTENTION: HERE IS A TRAP!!!</u>**
 
-**<u>DO NOT</u>** do that or another CUDA Toolkit will be installed, most likely version 10.1.xxx
+**<u>DON'T</u>** do that, or another CUDA Toolkit will be installed, most likely version 10.1.xxx
 
 In fact, CUDA Toolkit 11.8 has been installed, but it is not configured in the environment variables.
 

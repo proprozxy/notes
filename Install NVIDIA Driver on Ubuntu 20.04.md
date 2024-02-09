@@ -2,7 +2,7 @@
 
 ubuntu 20.04 lts
 
-#### 准备工作
+### 准备工作
 
 检查是否安装显卡驱动
 
@@ -28,17 +28,17 @@ lspci | grep -i nvidia
 
 [Official Drivers | NVIDIA](https://www.nvidia.com/Download/index.aspx)
 
-#### 安装
+### 安装
 
 可通过图形化界面或命令行安装驱动
 
-##### 图形化界面
+#### 图形化界面
 
 ![image](img/Install%20NVIDIA%20Driver%20on%20Ubuntu%2020.04/Screenshot%20from%202024-02-05%2000-50-58.png)
 
 ![image](img/Install%20NVIDIA%20Driver%20on%20Ubuntu%2020.04/Screenshot%20from%202024-02-05%2000-53-09.png)
 
-##### 命令行
+#### 命令行
 
 检查可安装的驱动
 
@@ -68,7 +68,7 @@ nvidia-smi
 
 
 
-#### 问题与解决方案
+### 问题与解决方案
 
 报错
 
@@ -98,11 +98,11 @@ sudo modprobe nvidia
 
 
 
-大致有 3 种可能导致以上问题，包括重启后黑屏
+大致有 3 种可能导致包括重启后黑屏在内的以上问题
 
 
 
-##### Nouveau 未禁用
+#### Nouveau 未禁用
 
 Nouveau 是默认的驱动程序，需要将 Nouveau 加入黑名单，禁止它在系统启动时加载，否则会与 NVIDIA 驱动冲突。
 
@@ -137,7 +137,7 @@ sudo update-initramfs -u
 
 
 
-##### 系统内核版本与驱动版本冲突
+#### 系统内核版本与驱动版本冲突
 
 如果系统内核更新后，NVIDIA 驱动没有相应更新，或者驱动不兼容当前内核版本，会导致 NVIDIA 驱动无法正确加载。
 
@@ -165,7 +165,7 @@ dpkg --get-selections | grep linux-image
 
 
 
-##### Secure Boot 阻止了驱动加载
+#### Secure Boot 阻止了驱动加载
 
 如果启用了 Secure Boot，系统会阻止未签名的驱动加载。NVIDIA 驱动需要在 Secure Boot 禁用或正确配置的环境中加载。
 
@@ -183,21 +183,24 @@ sudo mokutil --disable-validation
 
 
 
-#### 重新安装
+### 重新安装
 
 如问题仍存在，参考以下流程
 
 卸载已有的 NVIDIA 显卡驱动
 
-重启时，按住`shift`访问 GRUB 菜单，选择`Advanced options for Ubuntu`，进入指定内核的`Recovery Mode`，选择`root`进入命令行，输入以下代码卸载已安装的驱动后重启
+重启时，按住`shift`访问 GRUB 菜单，选择`Advanced options for Ubuntu`，进入指定内核的`Recovery Mode`，选择`root`进入命令
+
+行，输入以下代码卸载已安装的驱动后重启
 
 ```bash
-sudo apt-get purge nvidia*
-sudo apt-get autoremove
-sudo apt-get autoclean
-sudo rm -rf /usr/local/cuda*
-sudo apt-get --purge remove "*cublas*" "*cufft*" "*curand*" "*cusolver*" "*cusparse*" "*npp*" "*nvjpeg*" "cuda*" "nsight*"
-sudo apt-get --purge remove "*nvidia*"
+# To remove CUDA Toolkit
+sudo apt-get --purge remove "*cuda*" "*cublas*" "*cufft*" "*cufile*" "*curand*" "*cusolver*" "*cusparse*" "*gds-tools*" "*npp*" "*nvjpeg*" "nsight*" "*nvvm*"
+
+# To remove NVIDIA Drivers
+sudo apt-get --purge remove "*nvidia*" "libxnvctrl*"
+
+# To clean up the uninstall
 sudo apt-get autoremove
 ```
 
@@ -229,11 +232,9 @@ nvidia-smi
 
 ![image](img/Install%20NVIDIA%20Driver%20on%20Ubuntu%2020.04/Screenshot%20from%202024-02-05%2001-51-10.png)
 
-
-
 如果仍然存在无法开机等问题
 
-重装 Ubuntu 时禁用 Nouveau 以解决冲突问题
+在重装 Ubuntu 时禁用 Nouveau 以解决冲突问题
 
 参考 [Install Ubuntu 20.04 in a CUDA compatible way.md](Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way.md)
 
