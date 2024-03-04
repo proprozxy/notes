@@ -1,6 +1,6 @@
 ## Install NVIDIA Driver on Ubuntu 20.04
 
-ubuntu 20.04 lts
+*for ubuntu 20.04 lts*
 
 ### 准备工作
 

@@ -4,41 +4,41 @@
 
 *from USB drive*
 
-**STEP 1: Preparations**
+### **Preparations**
 
 Insert the bootable Ubuntu USB drive
 
-F2 enter UEFI Settings
+`F2` enter `UEFI Settings`
 
-F7 enter Advanced Mode
+`F7` enter `Advanced Mode`
 
-​	Security - Secure Boot - Disabled - F10 Save
+​	`Security` - `Secure Boot` - `Disabled` - `F10` Save
 
-​	Set SanDisk as Boot Option #1 - F10 Save
+​	Set `SanDisk` as `Boot Option #1` - `F10` Save
 
-F8 enter Boot Menu
+`F8` enter `Boot Menu`
 
-​	Select SanDisk
+​	Select `SanDisk`
 
-**STEP 2: Install Ubuntu**
+### **Install Ubuntu**
 
-Enter GRUD menu
+Enter `GRUD Menu` 
 
-​	Press 'E' to edit
+​	Press `E` to edit
 
-​	Find line 'file=/cdro/preseed/ubuntu.seed maybe-ubiquity quiet splash ---'
+​	Find line `file=/cdro/preseed/ubuntu.seed maybe-ubiquity quiet splash ---`
 
-​	Delete '---' and add 'nouveau.modeset=0' to disable the default driver 
+​	Delete `---` and add `nouveau.modeset=0` to disable the default driver 
 
-​	The line will be like 'file=/cdro/preseed/ubuntu.seed maybe-ubiquity quiet splash nouveau.modeset=0'
+​	The line will be like `file=/cdro/preseed/ubuntu.seed maybe-ubiquity quiet splash nouveau.modeset=0`
 
-​	F10 to boot
+​	`F10` to boot
 
 Install Ubuntu
 
 Remove the installation USB and restart
 
-**STEP 3: Install CUDA**
+### **Install CUDA**
 
 Install CUDA dependencies
 
@@ -64,9 +64,9 @@ sudo apt-get autoremove
 
 Go [CUDA Toolkit Downloads | NVIDIA Developer](https://developer.nvidia.com/cuda-downloads) to choose version then follow the instructions to install
 
-The CUDA Toolkit includes a specific version of the NVIDIA Driver to ensure compatibility with CUDA versions. Therefore, when 
+The CUDA Toolkit installation includes a specific version of the NVIDIA Driver to ensure compatibility with CUDA versions. 
 
-you install the CUDA Toolkit, it automatically installs the NVIDIA Driver for the current CUDA version.
+Therefore, the NVIDIA Driver will be installed automatically for the current CUDA version when installing CUDA Toolkit.
 
 Use CUDA Toolkit 11.8 as an example
 
@@ -93,9 +93,9 @@ The system recommends installing CUDA Toolkit.
 
 ![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-16-31.png)
 
-**<u>ATTENTION: HERE IS A TRAP!!!</u>**
+### <u>ATTENTION</u> 
 
-**<u>DON'T</u>** do that, or another CUDA Toolkit will be installed, most likely version 10.1.xxx
+**<u>DO NOT</u>** do that, or another CUDA Toolkit will be installed, most likely version 10.1.xxx
 
 In fact, CUDA Toolkit 11.8 has been installed, but it is not configured in the environment variables.
 
@@ -108,14 +108,14 @@ cd /usr/local
 or you can use this command to directly see whether the folder exists
 
 ```bash
-nautilus /
+nautilus /usr/local
 ```
 
-The cuda in the directory is usually a **symbolic link** that points to a specific version of CUDA directory. The reason for this is to make it easier for users to call in an environment where multiple CUDA coexist.
+The cuda in the directory is usually a **symbolic link** that points to a specific version of CUDA directory. This makes it easier for users to call in an environment where multiple CUDA coexist.
 
 ![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-14-27.png)
 
-Use vim or nano to edit environment configuration files
+Edit environment configuration files
 
 ```bash
 nano ~/.bashrc
@@ -129,15 +129,15 @@ export LD_LIBRARY_PATH=/usr/local/cuda/lib64
 export PATH=$PATH:/usr/local/cuda/bin
 ```
 
-CTRL+O save
+`CTRL + O` save
 
-ENTER ensure file name
+`ENTER` ensure file name
 
-CTRL+X exit
+`CTRL + X` exit
 
 ![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-25-33.png)
 
-Make it effective
+Make configuration effective
 
 ```bash
 source ~/.bashrc
@@ -150,6 +150,4 @@ nvcc -V
 ```
 
 ![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-27-50.png)
-
-
 
