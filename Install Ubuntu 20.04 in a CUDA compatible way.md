@@ -93,7 +93,7 @@ The system recommends installing CUDA Toolkit.
 
 ![image](img/Install%20Ubuntu%2020.04%20in%20a%20CUDA%20compatible%20way/Screenshot%20from%202024-02-08%2004-16-31.png)
 
-### <u>ATTENTION</u> 
+### Attention 
 
 **<u>DO NOT</u>** do that, or another CUDA Toolkit will be installed, most likely version 10.1.xxx
 
