@@ -68,11 +68,11 @@ rosversion -d
 ### Test
 
 ```bash
-roscore
+source /opt/ros/noetic/setup.bash
 ```
 
 ```bash
-source /opt/ros/noetic/setup.bash
+roscore
 ```
 
 ```bash
